@@ -1,0 +1,3 @@
+class BaseStats {
+    Initiative:number;
+}

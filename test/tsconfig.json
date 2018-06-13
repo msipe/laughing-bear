@@ -1,0 +1,20 @@
+{
+    "compilerOptions":{
+        "module":"amd",
+        "noImplicitAny":true,
+        "listFiles":true,
+        "noUnusedParameters":true,
+        "pretty":true,
+        "noImplicitReturns":true,
+        "forceConsistentCasingInFileNames": true,
+        "strictNullChecks":true,
+        "emitBOM":true,
+        "outDir": "bin\\",
+        "target":"es5",
+        "lib": ["es2015", "es2017", "dom"],
+        "outFile":"bin\\bigfile.js"
+    },
+    "include": [
+               ".\\ts\\*.ts"
+             ]
+}

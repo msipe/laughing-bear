@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+
+  
+  <script type="text/javascript" src="Q:\mjs\myGame\typescript\game\test\bin\jquery-3.2.1.min.js" ></script>
+  <script type="text/javascript" src="Q:\mjs\myGame\typescript\game\test\bin\bigfile.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+                       var game = new CardGame();
+                       var visual = new Visuals();
+                       
+                       var cards = [
+                         new Card("fireball", new FireBall(game)),
+                         new Card("lightningbolt", new LightningBolt(game)),
+                         new Card("fireball_1", new FireBall(game))
+                      ];
+
+                      var cards2 = [
+                         new Card("fireball2", new FireBall(game)),
+                         new Card("lightningbolt2", new LightningBolt(game)),
+                         new Card("fireball2", new FireBall(game))
+                      ];
+
+                      var d = game.CreateDeck(cards);
+                      var d2 = game.CreateDeck(cards2);
+
+                      var e_deck = game.CreateDeck([
+                        new Card("WolfBite", new WolfBite()),
+                        new Card("WolfBite", new WolfBite()),
+                        new Card("WolfBite", new WolfBite()),
+                        new Card("WolfBite", new WolfBite()),
+                        new Card("WolfBite", new WolfBite()),
+                        new Card("WolfBite", new WolfBite()),
+                        new Card("WolfBite", new WolfBite())
+                      ])
+                      var entities = [new Entity("wolf", e_deck, new EntityStats('15', 5, '1'))]
+
+                      var encounter = new Encounter("wolfie", game, entities);
+                      var c = [
+                        new Character("billy bob", d, new CharacterStats(10, 10)),
+                        new Character("darrel boy", d2, new CharacterStats(5, 1))
+                      ];
+                      console.log(c);
+                      var player = new Player(c);
+                      console.log(player);
+                                    
+                      //  var cards = [new Card("fireball", new FireBall()),
+                      //               new Card("incinerate", () => {alert('incinerate')}),
+                      //               new Card("lightning strike", () => {alert('lightning strike')}),
+                      //               new Card("firebolt", () => {alert('hi')}),
+                      //               new Card("firebolt", () => {alert('hi')}),
+                      //               new Card("firebolt", () => {alert('hi')}),
+                      //               new Card("firebolt", () => {alert('hi')}),
+                      //               new Card("firebolt", () => {alert('hi')}),
+                      //               new Card("firebolt", () => {alert('hi')}),
+                      //               new Card("firebolt", () => {alert('hi')}),
+                      //               new Card("firebolt", () => {alert('hi')}),
+                      //               new Card("flame lash", () => {alert('sss')})];
+                       
+                       
+                       
+                       $('#library').click(() => { return game.PlayerDraw(1)});
+
+                       $('#handslot_0').click(() => {game.PlayerPlayCard(0)});
+                       $('#handslot_1').click(() => {game.PlayerPlayCard(1)});
+                       $('#handslot_2').click(() => {game.PlayerPlayCard(2)});
+                       $('#handslot_3').click(() => {game.PlayerPlayCard(3)});
+                       $('#handslot_4').click(() => {game.PlayerPlayCard(4)});
+                       $('#handslot_5').click(() => {game.PlayerPlayCard(5)});
+                       $('#handslot_6').click(() => {game.PlayerPlayCard(6)});
+                       $('#handslot_7').click(() => {game.PlayerPlayCard(7)});
+                       $('#handslot_8').click(() => {game.PlayerPlayCard(8)});
+                       $('#handslot_9').click(() => {game.PlayerPlayCard(9)});
+
+                       $('#player_character0').click(() => {game.SetPlayerFocus(0)})
+                       $('#player_character1').click(() => {game.SetPlayerFocus(1)})
+
+                       game.Init(player, encounter);
+    });
+    });
+  </script>
+
+  </head>
+  <body>
+    </br>
+    <div id = "message" style="background-color:burlywood;height:150px;width:500px;overflow:auto">
+        message boi
+    </div>
+    <div id="enemy_side">
+      <span>Baddies</span>
+    </div>   
+    </br> 
+    <div>--</div>
+    </br>
+    <div id="player_side">
+      <div id="playercharacters">
+      </div>
+      <div>
+        <div id="playerHand">
+          <span id='handslot_0'></span>
+          <span id='handslot_1'></span>
+          <span id='handslot_2'></span>
+          <span id='handslot_3'></span>
+          <span id='handslot_4'></span>
+          <span id='handslot_5'></span>
+          <span id='handslot_6'></span>
+          <span id='handslot_7'></span>
+          <span id='handslot_8'></span>
+          <span id='handslot_9'></span>
+        </div>
+        <span id="library">Draw a card</span>
+      </div>
+      
+      </br>      
+      </br>
+      <span id="playerEndTurnButton">End this turn</span>
+      </div>
+    </div>
+  
+  </body>
+</html>
